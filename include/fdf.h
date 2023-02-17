@@ -6,7 +6,7 @@
 /*   By: belkarto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 08:43:59 by belkarto          #+#    #+#             */
-/*   Updated: 2023/02/15 21:10:27 by belkarto         ###   ########.fr       */
+/*   Updated: 2023/02/17 07:26:55 by belkarto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <math.h>
 
 # define WIN_W 1920
-# define WIN_H 1080
+# define WIN_H 960
 //----CCOLORS----//
 # define WHITHE	0X00ffffff
 # define BLACK	0X00000000

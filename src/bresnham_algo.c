@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: belkarto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 16:57:51 by belkarto          #+#    #+#             */
-/*   Updated: 2023/02/16 01:32:36 by brahim           ###   ########.fr       */
+/*   Created: 2023/02/11 18:07:46 by belkarto          #+#    #+#             */
+/*   Updated: 2023/02/17 07:16:09 by belkarto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	gradient(int startcolor, int endcolor, int len, int pix)
 	return (newcolor);
 }
 
-void	plotpix_h(t_bres bres, int pk, t_img *img)
+void	plotpix_in_x(t_bres bres, int pk, t_img *img)
 {
 	int	i;
 
@@ -58,7 +58,7 @@ void	plotpix_h(t_bres bres, int pk, t_img *img)
 	}
 }
 
-void	plotpix_l(t_bres bres, int pk, t_img *img)
+void	plotpix_in_y(t_bres bres, int pk, t_img *img)
 {
 	int	i;
 
@@ -91,11 +91,11 @@ void	plotpixel(t_bres bres, t_img *img)
 {
 	int	pk;
 
-	pk = 2 * (bres.dy - bres.dx);
+	pk = 2 * bres.dy - bres.dx;
 	if (bres.dx > bres.dy)
-		plotpix_h(bres, pk, img);
+		plotpix_in_x(bres, pk, img);
 	else
-		plotpix_l(bres, pk, img);
+		plotpix_in_y(bres, pk, img);
 }
 
 void	put_line(t_point p1, t_point p2, t_img *img)

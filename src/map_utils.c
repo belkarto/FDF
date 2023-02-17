@@ -6,7 +6,7 @@
 /*   By: belkarto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 02:21:56 by belkarto          #+#    #+#             */
-/*   Updated: 2023/02/16 01:22:18 by brahim           ###   ########.fr       */
+/*   Updated: 2023/02/15 17:53:23 by belkarto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,25 +64,21 @@ int	get_step(t_fdf *fdf)
 
 	if (fdf->map_high > fdf->map_width)
 	{
-		step = (WIN_H / fdf->map_high) / 2;
+		step = (WIN_H / fdf->map_high);
 		if (step == 1)
-			return (3);
+			return (2);
 		else
 			return (step);
 	}
 	else
 	{
-		step = (WIN_W / fdf->map_width) / 2;
+		step = (WIN_W / fdf->map_width);
 		if (step == 1)
-			return (3);
+			return (2);
 		else
 			return (step);
 	}
 }
-
-/*
- get every points corrdination and height and color
-*/
 
 void	get_points(char	*str, t_fdf *fdf)
 {
@@ -94,10 +90,12 @@ void	get_points(char	*str, t_fdf *fdf)
 	free(str);
 	j = -1;
 	(*fdf).pnt = ft_calloc(fdf->map_high + 1, sizeof(t_point *));
-	fdf->step = get_step(fdf);
+	(*fdf).pnt_af = ft_calloc(fdf->map_high + 1, sizeof(t_point *));
+	fdf->step = 5;
 	while (++j < fdf->map_high)
 	{
 		fdf->pnt[j] = ft_calloc(fdf->map_width + 1, sizeof(t_point));
+		fdf->pnt_af[j] = ft_calloc(fdf->map_width + 1, sizeof(t_point));
 		i = -1;
 		while (++i < fdf->map_width)
 		{
@@ -109,11 +107,6 @@ void	get_points(char	*str, t_fdf *fdf)
 	}
 	ft_free(map);
 }
-
-/*
- Function that reads the map file and chek if it's valid file 
- and hold the map in string and split it after finishing by new line
- */
 
 void	read_map(int fd, char *str, t_fdf *fdf)
 {
@@ -135,8 +128,8 @@ void	read_map(int fd, char *str, t_fdf *fdf)
 		if (line == NULL)
 			break ;
 		readed = ft_strjoin_gnl(readed, line);
-		fdf->map_high++;
 		free(line);
+		fdf->map_high++;
 	}
 	get_points(readed, fdf);
 }

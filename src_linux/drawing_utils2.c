@@ -6,10 +6,10 @@
 /*   By: belkarto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:00:00 by belkarto          #+#    #+#             */
-/*   Updated: 2023/02/19 17:24:50 by brahim           ###   ########.fr       */
+/*   Updated: 2023/02/19 17:49:47 by brahim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/fdf.h"
+#include "../include/linux_fdf.h"
 #include <math.h>
 
 void	my_mlx_pixel_put(t_img *fdf, int x, int y, int color)

@@ -6,10 +6,15 @@ OS			= $(shell uname -s)
 ifeq ($(OS), Darwin)
 	MLX_O = -Imlx -c -o3
 	MLXCC = -lmlx -framework OpenGL -framework AppKit
+	NAME		= fdf
+	SRC_DIR		= src/
 else
+	NAME		= fdf_linux
+	SRC_DIR		= src_linux/
 	MLX_O = -I/usr/include -Imlx_linux -o3 -c
 	MLXCC = -Lmlx_linux -lmlx_Linux -L/usr/lib/ -Imlx_linux -lXext -lX11 -lm
 endif
+# SRC_DIR	src_linux/
 # #=========================================================
 
 # #=== Colors ===
@@ -20,8 +25,6 @@ GREEN = \033[0;1;92m
 # #==============
 
 # #=== Standard ===
-NAME		= fdf
-SRC_DIR		= src/
 OBJ_DIR		= obj/
 LIBFT		= include/my_lib/libft.a
 SRC_FILES	= main map_utils map_utils2 keys mous menu fdf_utils drawing_utils drawing_utils2 bresnham_algo
@@ -29,7 +32,8 @@ SRC_FILES	= main map_utils map_utils2 keys mous menu fdf_utils drawing_utils dra
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
-CFLAGS = -g -o3 -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -g -o3 -Wall -Wextra -Werror 
+#-g -fsanitize=address
 CC = cc 
 OBJF		=	.cache_exists
 

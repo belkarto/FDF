@@ -6,7 +6,7 @@
 /*   By: belkarto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 08:43:59 by belkarto          #+#    #+#             */
-/*   Updated: 2023/02/17 07:26:55 by belkarto         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:02:09 by belkarto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	put_line_high(t_point p1, t_point p2, t_img *img);
 void	put_line(t_point p1, t_point p2, t_img *img);
 void	iso(t_fdf *fdf);
 void	iso_key(t_fdf *fdf, int key);
-void	height_control(t_fdf *fdf,int key);
+void	height_control(t_fdf *fdf, int key);
 void	rotation_control(t_fdf *fdf, int key);
 void	reset(t_fdf *fdf);
 void	rotat(t_fdf *fdf);

@@ -6,7 +6,7 @@
 /*   By: belkarto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 12:04:14 by belkarto          #+#    #+#             */
-/*   Updated: 2023/02/19 17:30:27 by brahim           ###   ########.fr       */
+/*   Updated: 2023/03/17 11:00:43 by belkarto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/fdf.h"
@@ -114,7 +114,7 @@ void	draw_map(t_fdf fdf)
 	fdf.step = 3;
 	put_init(&fdf);
 	mlx_hook(fdf.win_ptr, 17, 0, close2, &fdf);
-	mlx_key_hook(fdf.win_ptr, key_hook, &fdf);
+	mlx_hook(fdf.win_ptr, 2, 0, key_hook, &fdf);
 	mlx_hook(fdf.win_ptr, 6, 0, ft_mouse, &fdf);
 	mlx_hook(fdf.win_ptr, 4, 0, ft_mouse_press, &fdf);
 	mlx_hook(fdf.win_ptr, 5, 0, ft_mouse_releas, &fdf);

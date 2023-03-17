@@ -6,7 +6,7 @@
 /*   By: belkarto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 02:21:56 by belkarto          #+#    #+#             */
-/*   Updated: 2023/02/19 17:52:12 by brahim           ###   ########.fr       */
+/*   Updated: 2023/03/17 11:03:12 by belkarto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,5 +131,7 @@ void	read_map(int fd, char *str, t_fdf *fdf)
 		free(line);
 		fdf->map_high++;
 	}
+	if (readed == NULL)
+		exit(255);
 	get_points(readed, fdf);
 }

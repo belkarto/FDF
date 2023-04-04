@@ -18,10 +18,13 @@ endif
 # #=========================================================
 
 # #=== Colors ===
-NO_COLOR    =   \033[0m
-GRAY = \033[0;1;90m
-RED = \033[0;1;91m
-GREEN = \033[0;1;92m
+NO_COLOR    = \033[0m
+GRAY 		= \033[0;1;3;90m
+RED 		= \033[0;1;3;91m
+GREEN		= \033[0;1;3;92m
+GREEN_L		= \033[0;1;3;36m
+YELLOW		= \033[0;1;3;33m
+BLUE		= \033[0;1;3;34m
 # #==============
 
 # #=== Standard ===
@@ -30,6 +33,7 @@ LIBFT		= include/my_lib/libft.a
 SRC_FILES	= main map_utils map_utils2 keys mous menu fdf_utils drawing_utils drawing_utils2 bresnham_algo
 # #================
 
+AUTHOR		= 	belkarto
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 CFLAGS = -g -o3 -Wall -Wextra -Werror 
@@ -38,8 +42,7 @@ CC = cc
 OBJF		=	.cache_exists
 
 
-all : $(NAME)
-	@printf "$(GREEN)ALL DONE NOTHING TO BE MADE$(NO_COLOR)"
+all : header $(NAME)
 
 # # == Rule that compile source files into object files ==
 $(OBJ_DIR)%.o	: $(SRC_DIR)%.c | $(OBJF)
@@ -50,7 +53,7 @@ $(OBJ_DIR)%.o	: $(SRC_DIR)%.c | $(OBJF)
 # #=== rule that compile the final program ===
 $(NAME) : $(OBJ) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJ) $(MLXCC) $(LIBFT) -o $(NAME)
-	@printf "$(GREEN)\r   ---> FDF IS MADE <---      \n$(NO_COLOR)"
+	@printf "$(GREEN)\r- Fdf is ready ✅🥳 \n$(NO_COLOR)"
 # #===========================================
 
 # #== creat bonus part ===
@@ -66,7 +69,7 @@ $(OBJF):
 
 
 # # == rule deleting compiled files : the cache folder ==
-clean :
+clean : header
 	@rm -rf $(OBJ_DIR)
 	@make clean -C include/my_lib
 	@printf "$(RED)-->   CLEANED   <--$(NO_COLOR)"
@@ -80,3 +83,17 @@ fclean	:	clean
 
 re		:	fclean all
 
+header	:
+	@echo "$(GREEN)"
+	@echo "███████╗██████╗ ███████╗"
+	@echo "██╔════╝██╔══██╗██╔════╝"
+	@echo "█████╗  ██║  ██║█████╗  "
+	@echo "██╔══╝  ██║  ██║██╔══╝  "
+	@echo "██║     ██████╔╝██║     "
+	@echo "╚═╝     ╚═════╝ ╚═╝     "
+	@printf  "$(GREEN_L)Author\t: $(BLUE)$(AUTHOR)\n"
+	@printf  "$(GREEN_L)CC    \t: $(YELLOW)$(CC)\n\033[m"
+	@printf  "$(GREEN_L)Flags \t: $(YELLOW)$(CFLAGS)\n\033[m"
+	@echo
+	@echo "$(NO_COLOR)"
+                        

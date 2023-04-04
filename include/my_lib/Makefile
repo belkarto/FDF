@@ -1,7 +1,6 @@
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 OBJEC		= 	$(SRC:.c=.o)
-
 #----------------------------------------------#
 #			  archive file name
 #----------------------------------------------#
@@ -38,24 +37,26 @@ SRC			=	ft_atoi.c		ft_bzero.c		\
 				get_next_line.c	ft_lstnew_int.c 	\
 				ft_lstadd_back_int.c	ft_lstdelone_int.c\
 				ft_lstclear_int.c	ft_atol.c\
-				ft_lstsize_int.c
+				ft_lstsize_int.c	ft_strcmp.c
 
 #----------------------------------------------#
 # 					Colors
 #----------------------------------------------#
 NO_COLOR    = \033[0m
-GRAY 		= \033[0;90m
-RED 		= \033[0;91m
-GREEN 		= \033[0;92m
+GRAY 		= \033[0;1;3;90m
+RED 		= \033[0;1;3;91m
+GREEN 		= \033[0;1;3;92m
 
 all			: $(NAME)
-
 #----------------------------------------------#
 #		  compiling src files to object 
 #----------------------------------------------#
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf "\r ⌛$(GRAY)Making libft$(NO_COLOR)"
+	@printf "\r$(GRAY)- Creating libft ...⌛$(NO_COLOR)"
+	@sleep 0.03
+	@printf "\r$(GRAY)- Creating libft ...⏳$(NO_COLOR)"
+	@sleep 0.03
 #----------------------------------------------#
 
 
@@ -65,20 +66,17 @@ all			: $(NAME)
 #----------------------------------------------#
 $(NAME)		: $(OBJEC)
 	@ar rc $(NAME) $(OBJEC)
-	@printf "\r$(GREEN) 🗃️ your libft is ready$(NO_COLOR)✅\n"
-
+	@printf "\n$(GREEN)- Libft finished$(NO_COLOR) ✅🥳\n\n"
 #----------------------------------------------#
 #				delete object file
 #----------------------------------------------#
 clean		:
 	@rm -f $(OBJEC)
-	@printf "🚮 $(RED)delete all object files <*.o>\n$(NO_COLOR)"
 #----------------------------------------------#
 #		 delete object file and archive
 #----------------------------------------------#
 fclean		: clean
 	@rm -f $(NAME)
-	@printf "🚮 $(RED)delet libft.a\n$(NO_COLOR)"
 
 
 #----------------------------------------------#
